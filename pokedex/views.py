@@ -1,11 +1,9 @@
-from django.http.response import HttpResponse
-#from django.shortcuts import render
+from django.http.response import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 import requests
+from .forms import SimpleForms
 
-# Create your views here.
-def hello(request):
-  return HttpResponse('Hello')
-
+# fetching all types of pokemons
 def pokFetcher(request):
   x = requests.get('https://pokeapi.co/api/v2/type/')
   result = x.json()
@@ -16,4 +14,30 @@ def pokFetcher(request):
     names.append(name)
 
   return HttpResponse(names)
+
+# creating a simple form
+def form(request):
+  f = SimpleForms()
+  store = render(request, 'form.html', {'form':f})
+  url = 'https://pokeapi.co/api/v2/type/2'
+  t = requests.get(url)
+  ans = t.json()
+  data = ans['pokemon']
+  all = []
+  for i in data:
+    all.append(i['pokemon']['name'])
+
+  return HttpResponse(all)
   
+
+# fetching all types of pokemons
+'''def typeFetcher(request):
+  url = 'https://pokeapi.co/api/v2/type/2'
+  t = requests.get(url)
+  ans = t.json()
+  data = ans['pokemon']
+  all = []
+  for i in data:
+    all.append(i['pokemon']['name'])
+
+  return HttpResponse(all)'''
