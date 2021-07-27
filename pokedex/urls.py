@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
   # path('', views.pokFetcher, name='pokedex'),
+  path('', views.typeFetcher, name='type'),
   path('', views.form, name='choice'),
-  # path('', views.typeFetcher, name='type'),
 ]
