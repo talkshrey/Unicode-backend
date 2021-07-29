@@ -1,10 +1,20 @@
 <html>
     <body>
-        <form action="" method="GET">    
+        <!-- <form action="" method="GET">    
             {{ form.as_p }}
             <input type="submit" value="Submit">      
         </form>
+        -->
+        <form action="https://pokeapi.co/api/v2/type/" method="get">
+            <input type="number">
+            <button> submit </button>
+        </form>
+
         <h1> Pokemon types </h1>
-        {{ name }}
+        <ol>
+            {% for i in name %} 
+                <li> {{ i.name }} </li>
+            {% endfor %}
+        </ol>
     </body>
 </html>

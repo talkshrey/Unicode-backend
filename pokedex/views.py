@@ -18,16 +18,13 @@ def pokFetcher(request):
 # creating a simple form
 def form(request):
   f = SimpleForms()
-  store = render(request, 'form.html', {'form':f})
-  return HttpResponse(store)  
+  store = render(request, 'index.html', {'form':f})
+  return HttpResponse(store) 
 
 # fetching all types of pokemons
 def typeFetcher(request):
-  url = 'https://pokeapi.co/api/v2/type/2'
+  url = 'https://pokeapi.co/api/v2/type/'
   t = requests.get(url)
   ans = t.json()
-  data = ans['pokemon']
-  all = []
-  for i in data:
-    all.append(i['pokemon']['name'])
-  return HttpResponse(all)
+  data = ans['results']
+  return render(request, 'form.html', {'name':data})
