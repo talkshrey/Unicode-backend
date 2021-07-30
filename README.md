@@ -13,3 +13,5 @@ Straight forward use of requests library in django, then Httpresponse command wa
 Could not complete task 3, created a forms section and listed types of pokemons to select from
 
 ![Output 3](https://github.com/talkshrey/Unicode-backend/blob/master/task_images/Task3img1.png)
+
+![Output 4](https://github.com/talkshrey/Unicode-backend/blob/master/task_images/Task3img2.png)
