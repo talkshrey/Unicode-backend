@@ -27,4 +27,4 @@ def typeFetcher(request):
   t = requests.get(url)
   ans = t.json()
   data = ans['results']
-  return render(request, 'form.html', {'name':data})
+  return render(request, 'form.html', {'list':data})
