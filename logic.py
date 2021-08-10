@@ -6,14 +6,13 @@ arr = []
 for i in range(n):
     arr.append(input(("Enter a word: ")))
 
+# calculating number of distinct words
+distinct = len(cl.Counter(arr).values())
+print(distinct)
+
 # calculating the frequency of each word in an array
 v = cl.Counter(arr).values()
+print("Frequency of each word in the array:", end=" ")
 for j in v:
     print(j, end=" ")
 print()
-# bonus
-new_v = []
-for i in v:
-    new_v.append(i)
-
-print(new_v.sort())
